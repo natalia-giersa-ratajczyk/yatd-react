@@ -16,3 +16,15 @@
 .button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
+.primary {
+  background-color: deeppink;
+}
+
+.secondary {
+  background-color: deepskyblue;
+}
+
+.tertiary {
+  background-color: purple;
+}

@@ -1,0 +1,40 @@
+.checkbox-label {
+  background-color: var(--white-color);
+  border-radius: 6px;
+  border: var(--border-light-gray);
+  transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
+  box-shadow: var(--checkbox-shadow);
+  cursor: pointer;
+}
+
+.checkbox-label:hover {
+  border-color: var(--accent-color);
+  box-shadow: var(--accent-shadow);
+}
+
+.icon {
+  height: 2.4rem;
+  width: 2.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon svg {
+  height: 1.8rem;
+  width: 1.8rem;
+  color: var(--white-color);
+}
+
+.checkbox-label-checked {
+  border-color: var(--accent-darker-color);
+  background-color: var(--accent-color);
+  box-shadow: var(--accent-shadow);
+}
+
+.checkbox-label-disabled {
+  background-color: var(--light-gray-color);
+  border: var(--border-lighter-gray);
+  box-shadow: none;
+  pointer-events: none;
+}

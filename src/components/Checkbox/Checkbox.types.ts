@@ -3,4 +3,5 @@ export interface CheckboxProps {
   name: string;
   checked?: boolean;
   disabled?: boolean;
+  isActive?: boolean;
 }

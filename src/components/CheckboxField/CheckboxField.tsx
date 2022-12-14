@@ -4,10 +4,19 @@ import Input from '@/components/Input';
 import styles from './CheckboxField.module.css';
 import { CheckboxFieldProps } from './CheckboxField.types';
 
-const CheckboxField = ({ id, name, placeholder, value, changeHandler, blurHandler }: CheckboxFieldProps) => {
+const CheckboxField = ({
+  id,
+  name,
+  placeholder,
+  value,
+  changeHandler,
+  blurHandler,
+  isActive = false,
+  disabled = false,
+}: CheckboxFieldProps) => {
   return (
     <div className={styles['checkbox-field']}>
-      <Checkbox id={id} name={name} />
+      <Checkbox id={id} name={name} isActive={isActive} disabled={disabled} />
       <Input
         id={id}
         name={name}
@@ -15,6 +24,7 @@ const CheckboxField = ({ id, name, placeholder, value, changeHandler, blurHandle
         value={value}
         changeHandler={changeHandler}
         blurHandler={blurHandler}
+        disabled={disabled}
       />
     </div>
   );

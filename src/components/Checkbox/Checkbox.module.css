@@ -38,3 +38,8 @@
   box-shadow: none;
   pointer-events: none;
 }
+
+.checkbox-label-active {
+  border-color: var(--accent-color);
+  box-shadow: var(--accent-shadow);
+}

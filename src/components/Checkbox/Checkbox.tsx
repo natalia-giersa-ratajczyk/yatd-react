@@ -5,7 +5,7 @@ import CheckIcon from '@/assets/icons/check.svg';
 import styles from './Checkbox.module.css';
 import { CheckboxProps } from './Checkbox.types';
 
-const Checkbox = ({ id, name, checked = false, disabled = false }: CheckboxProps) => {
+const Checkbox = ({ id, name, checked = false, disabled = false, isActive = false }: CheckboxProps) => {
   const [isChecked, setIsChecked] = useState(checked);
 
   const toggleHandler = () => {
@@ -16,8 +16,10 @@ const Checkbox = ({ id, name, checked = false, disabled = false }: CheckboxProps
 
   const disabledStyles = disabled ? styles['checkbox-label-disabled'] : '';
 
+  const activeStyles = isActive ? styles['checkbox-label-active'] : '';
+
   return (
-    <label className={`${styles['checkbox-label']} ${checkedStyles} ${disabledStyles}`} htmlFor={id}>
+    <label className={`${styles['checkbox-label']} ${checkedStyles} ${disabledStyles} ${activeStyles}`} htmlFor={id}>
       <span className={styles.icon}>
         <CheckIcon />
       </span>

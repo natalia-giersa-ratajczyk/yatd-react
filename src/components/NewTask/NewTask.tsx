@@ -11,6 +11,8 @@ const NewTask = () => {
     event.preventDefault();
   };
 
+  // TODO: Add creating new tasks functionality.
+
   return (
     <form onSubmit={submitHandler} className={styles['new-task']}>
       <CheckboxField

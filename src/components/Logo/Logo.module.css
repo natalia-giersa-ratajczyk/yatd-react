@@ -1,0 +1,22 @@
+.logo {
+  font-size: 5.2rem;
+  font-weight: 900;
+  padding: 2.6rem 3rem;
+}
+
+.logo span {
+  color: var(--accent-color);
+}
+
+.logo-box {
+  display: inline-block;
+  background-color: var(--white-color);
+  border: var(--border-lighter-gray);
+  border-radius: 0 0 4rem 8px;
+  margin-bottom: 7.1rem;
+}
+
+.logo-container {
+  width: 57rem;
+  margin: 0 auto;
+}

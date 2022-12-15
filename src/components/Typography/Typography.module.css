@@ -1,0 +1,20 @@
+.heading {
+  font-size: var(--heading-secondary-size);
+  font-weight: 700;
+}
+
+.body {
+  font-size: var(--small-text-size);
+}
+
+.text {
+  color: var(--text-color);
+}
+
+.accent {
+  color: var(--accent-color);
+}
+
+.gray {
+  color: var(--gray-color);
+}

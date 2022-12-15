@@ -1,0 +1,39 @@
+import ListHeader from '@/components/ListHeader';
+import TasksList from '@/components/TasksList';
+import { Tasks } from '@/interfaces/task';
+
+import styles from './ActiveTasks.module.css';
+
+const DUMMY_TASKS: Tasks = [
+  {
+    id: 'task-1',
+    text: 'Create some awesome code!',
+    isCompleted: false,
+  },
+  {
+    id: 'task-2',
+    text: 'Drink delicious coffee',
+    isCompleted: false,
+  },
+  {
+    id: 'task-3',
+    text: 'Do some stretching',
+    isCompleted: false,
+  },
+  {
+    id: 'task-4',
+    text: 'Learn something new',
+    isCompleted: false,
+  },
+];
+
+const ActiveTasks = () => {
+  return (
+    <div className={styles['active-tasks']}>
+      <ListHeader text="Your tasks" counter={4} />
+      <TasksList tasks={DUMMY_TASKS} />
+    </div>
+  );
+};
+
+export default ActiveTasks;

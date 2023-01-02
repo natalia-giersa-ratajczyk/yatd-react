@@ -4,4 +4,5 @@ export interface CheckboxProps {
   checked?: boolean;
   disabled?: boolean;
   isActive?: boolean;
+  clickHandler?: () => void;
 }

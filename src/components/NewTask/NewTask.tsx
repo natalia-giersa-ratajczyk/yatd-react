@@ -10,10 +10,17 @@ const NewTask = () => {
 
   const taskContext = useContext(TaskContext);
 
-  const submitHandler = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const submit = () => {
+    if (value === '') {
+      return;
+    }
     taskContext.addNewTaskHandler(value);
     setValue('');
+  };
+
+  const submitHandler = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    submit();
   };
 
   // TODO: Add creating new tasks functionality.
@@ -25,8 +32,9 @@ const NewTask = () => {
         name="test"
         placeholder="Add a new task..."
         value={value ?? ''}
+        checked={false}
         changeHandler={(event) => setValue(event.target.value)}
-        blurHandler={() => setValue('')}
+        clickHandler={submit}
       />
     </form>
   );

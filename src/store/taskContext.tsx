@@ -32,7 +32,6 @@ export const TaskContextProvider = ({ children }: TaskContextProviderProps) => {
 
   const addNewTaskHandler = (text: string) => {
     setTasks((prevTasks) => [...prevTasks, { id: text, text, isCompleted: false }]);
-    console.log(tasks);
   };
 
   return <TaskContext.Provider value={{ tasks, addNewTaskHandler }}>{children}</TaskContext.Provider>;

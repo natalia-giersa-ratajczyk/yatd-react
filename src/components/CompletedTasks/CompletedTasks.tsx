@@ -4,6 +4,8 @@ import { Tasks } from '@/interfaces/task';
 
 import styles from './CompletedTasks.module.css';
 
+// TODO: Change when mark as completed is done
+
 const DUMMY_TASKS: Tasks = [
   {
     id: 'task-1',
@@ -25,7 +27,7 @@ const DUMMY_TASKS: Tasks = [
 const CompletedTasks = () => {
   return (
     <div className={styles['completed-tasks']}>
-      <ListHeader text="Completed tasks" counter={3} />
+      <ListHeader text="Completed tasks" counter={DUMMY_TASKS.length} />
       <TasksList tasks={DUMMY_TASKS} />
     </div>
   );

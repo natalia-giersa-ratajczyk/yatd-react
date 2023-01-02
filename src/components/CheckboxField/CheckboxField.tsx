@@ -9,14 +9,23 @@ const CheckboxField = ({
   name,
   placeholder,
   value,
+  checked,
   changeHandler,
   blurHandler,
   isActive = false,
   disabled = false,
+  clickHandler,
 }: CheckboxFieldProps) => {
   return (
     <div className={styles['checkbox-field']}>
-      <Checkbox id={id} name={name} isActive={isActive} disabled={disabled} />
+      <Checkbox
+        id={id}
+        name={name}
+        isActive={isActive}
+        checked={checked}
+        disabled={disabled}
+        clickHandler={clickHandler}
+      />
       <Input
         id={id}
         name={name}

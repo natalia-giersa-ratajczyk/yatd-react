@@ -1,6 +1,9 @@
+import { useContext } from 'react';
+
 import ListHeader from '@/components/ListHeader';
 import TasksList from '@/components/TasksList';
 import { Tasks } from '@/interfaces/task';
+import TaskContext from '@/store/taskContext';
 
 import styles from './ActiveTasks.module.css';
 
@@ -28,10 +31,12 @@ const DUMMY_TASKS: Tasks = [
 ];
 
 const ActiveTasks = () => {
+  const { tasks } = useContext(TaskContext);
+
   return (
     <div className={styles['active-tasks']}>
       <ListHeader text="Your tasks" counter={4} />
-      <TasksList tasks={DUMMY_TASKS} />
+      <TasksList tasks={tasks} />
     </div>
   );
 };

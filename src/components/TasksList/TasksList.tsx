@@ -8,14 +8,18 @@ const TasksList = ({ tasks }: TasksListProps) => {
     return <></>;
   }
 
+  const onChange = () => {
+    console.log('choćby dupa');
+  };
+
   // TODO: Mark task as completed.
   // TODO: Add editing functionality.
   // TODO: Add deletion functionality.
 
   return (
     <div className={styles['tasks-list']}>
-      {tasks.map((task) => (
-        <TaskItem key={task.id} id={task.id} name={task.id} value={task.text} disabled={task.isCompleted} />
+      {tasks.map(({ id, text, isCompleted }) => (
+        <TaskItem key={id} id={id} name={id} value={text} disabled={isCompleted} changeHandler={onChange} />
       ))}
     </div>
   );

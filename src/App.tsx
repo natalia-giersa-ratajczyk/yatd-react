@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import Logo from '@/components/Logo';
 import NewTask from '@/components/NewTask';
 import Container from '@/containers/Container';
+import { TaskContextProvider } from '@/store/taskContext';
 
 // import styles from './App.module.css';
 
@@ -16,9 +17,11 @@ function App() {
     <>
       <Logo />
       <Container>
-        <NewTask />
-        <ActiveTasks />
-        <CompletedTasks />
+        <TaskContextProvider>
+          <NewTask />
+          <ActiveTasks />
+          <CompletedTasks />
+        </TaskContextProvider>
       </Container>
       <Footer />
     </>

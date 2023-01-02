@@ -1,11 +1,14 @@
-import { FormEvent, useState } from 'react';
+import { createContext, FormEvent, useState } from 'react';
 
 import CheckboxField from '@/components/CheckboxField';
+import TaskContext from '@/store/taskContext';
 
 import styles from './NewTask.module.css';
 
 const NewTask = () => {
   const [value, setValue] = useState('');
+
+  const taskContext = createContext(TaskContext);
 
   const submitHandler = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();

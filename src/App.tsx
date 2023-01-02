@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import ActiveTasks from '@/components/ActiveTasks';
 import CompletedTasks from '@/components/CompletedTasks';
 import Footer from '@/components/Footer';
@@ -11,8 +9,6 @@ import { TaskContextProvider } from '@/store/taskContext';
 // import styles from './App.module.css';
 
 function App() {
-  // TODO: Add counter functionality.
-
   return (
     <>
       <Logo />

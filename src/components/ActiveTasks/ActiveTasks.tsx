@@ -35,7 +35,7 @@ const ActiveTasks = () => {
 
   return (
     <div className={styles['active-tasks']}>
-      <ListHeader text="Your tasks" counter={4} />
+      <ListHeader text="Your tasks" counter={tasks.length} />
       <TasksList tasks={tasks} />
     </div>
   );

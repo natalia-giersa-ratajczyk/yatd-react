@@ -1,4 +1,4 @@
-import { createContext, FormEvent, useState } from 'react';
+import { FormEvent, useContext, useState } from 'react';
 
 import CheckboxField from '@/components/CheckboxField';
 import TaskContext from '@/store/taskContext';
@@ -8,10 +8,12 @@ import styles from './NewTask.module.css';
 const NewTask = () => {
   const [value, setValue] = useState('');
 
-  const taskContext = createContext(TaskContext);
+  const taskContext = useContext(TaskContext);
 
   const submitHandler = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    taskContext.addNewTaskHandler(value);
+    setValue('');
   };
 
   // TODO: Add creating new tasks functionality.

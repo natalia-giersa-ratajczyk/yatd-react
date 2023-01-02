@@ -1,18 +1,9 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import React, { ReactNode, useState } from 'react';
+import React, { useState } from 'react';
 
 import { Tasks } from '@/interfaces/task';
 
-interface TaskContextProps {
-  tasks: Tasks;
-  addNewTaskHandler: (text: string) => void;
-  markAsCompletedHandler?: () => void;
-  deleteHandler?: () => void;
-}
-
-interface TaskContextProviderProps {
-  children: ReactNode;
-}
+import { TaskContextProps, TaskContextProviderProps } from './taskContext.types';
 
 const TaskContext = React.createContext<TaskContextProps>({
   tasks: [],
@@ -22,13 +13,7 @@ const TaskContext = React.createContext<TaskContextProps>({
 });
 
 export const TaskContextProvider = ({ children }: TaskContextProviderProps) => {
-  const [tasks, setTasks] = useState<Tasks>([
-    {
-      id: 'test',
-      text: 'test context',
-      isCompleted: false,
-    },
-  ]);
+  const [tasks, setTasks] = useState<Tasks>([]);
 
   const addNewTaskHandler = (text: string) => {
     setTasks((prevTasks) => [...prevTasks, { id: text, text, isCompleted: false }]);

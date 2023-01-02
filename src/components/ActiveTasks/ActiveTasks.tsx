@@ -31,12 +31,12 @@ const DUMMY_TASKS: Tasks = [
 ];
 
 const ActiveTasks = () => {
-  const tasksContext = useContext(TaskContext);
+  const { tasks } = useContext(TaskContext);
 
   return (
     <div className={styles['active-tasks']}>
       <ListHeader text="Your tasks" counter={4} />
-      <TasksList tasks={tasksContext.tasks} />
+      <TasksList tasks={tasks} />
     </div>
   );
 };

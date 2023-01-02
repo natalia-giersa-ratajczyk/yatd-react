@@ -8,13 +8,13 @@ import styles from './NewTask.module.css';
 const NewTask = () => {
   const [value, setValue] = useState('');
 
-  const taskContext = useContext(TaskContext);
+  const { addNewTaskHandler } = useContext(TaskContext);
 
   const submit = () => {
     if (value === '') {
       return;
     }
-    taskContext.addNewTaskHandler(value);
+    addNewTaskHandler(value);
     setValue('');
   };
 
@@ -23,8 +23,6 @@ const NewTask = () => {
     submit();
   };
 
-  // TODO: Add creating new tasks functionality.
-
   return (
     <form onSubmit={submitHandler} className={styles['new-task']}>
       <CheckboxField
@@ -32,7 +30,6 @@ const NewTask = () => {
         name="test"
         placeholder="Add a new task..."
         value={value ?? ''}
-        checked={false}
         changeHandler={(event) => setValue(event.target.value)}
         clickHandler={submit}
       />

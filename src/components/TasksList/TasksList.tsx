@@ -18,15 +18,8 @@ const TasksList = ({ tasks }: TasksListProps) => {
 
   return (
     <div className={styles['tasks-list']}>
-      {tasks.map((task) => (
-        <TaskItem
-          key={task.id}
-          id={task.id}
-          name={task.id}
-          value={task.text}
-          disabled={task.isCompleted}
-          changeHandler={onChange}
-        />
+      {tasks.map(({ id, text, isCompleted }) => (
+        <TaskItem key={id} id={id} name={id} value={text} disabled={isCompleted} changeHandler={onChange} />
       ))}
     </div>
   );

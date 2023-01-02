@@ -4,8 +4,9 @@ import { Tasks } from '@/interfaces/task';
 
 export interface TaskContextProps {
   tasks: Tasks;
+  completedTasks: Tasks;
   addNewTaskHandler: (text: string) => void;
-  markAsCompletedHandler?: () => void;
+  markAsCompletedHandler: (id: string) => void;
   deleteHandler?: () => void;
 }
 

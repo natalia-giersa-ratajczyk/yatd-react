@@ -55,6 +55,7 @@ const TaskItem = ({
         changeHandler={changeHandler}
         blurHandler={blurHandler}
         isActive={isActive && !disabled}
+        clickHandler={clickHandler}
       />
       {isActive && <CancelButton clickHandler={cancelClickHandler} />}
     </div>

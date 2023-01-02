@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { useState } from 'react';
 
 import CheckIcon from '@/assets/icons/check.svg';
@@ -5,13 +6,17 @@ import CheckIcon from '@/assets/icons/check.svg';
 import styles from './Checkbox.module.css';
 import { CheckboxProps } from './Checkbox.types';
 
-const Checkbox = ({ id, name, checked = false, disabled = false, isActive = false, clickHandler }: CheckboxProps) => {
+const Checkbox = ({
+  id,
+  name,
+  checked = false,
+  disabled = false,
+  isActive = false,
+  clickHandler = () => {},
+}: CheckboxProps) => {
   const [isChecked, setIsChecked] = useState(checked);
 
   const toggleHandler = () => {
-    if (typeof clickHandler !== 'undefined') {
-      return;
-    }
     setIsChecked((previousState) => !previousState);
   };
 
@@ -27,7 +32,14 @@ const Checkbox = ({ id, name, checked = false, disabled = false, isActive = fals
         <CheckIcon />
       </span>
 
-      <input id={id} name={name} type="checkbox" disabled={disabled} onChange={toggleHandler} onClick={clickHandler} />
+      <input
+        id={id}
+        name={name}
+        type="checkbox"
+        disabled={disabled}
+        onChange={toggleHandler}
+        onClick={() => clickHandler(id)}
+      />
     </label>
   );
 };

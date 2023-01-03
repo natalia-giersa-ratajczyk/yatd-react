@@ -57,9 +57,7 @@ const TaskItem = ({
         isActive={isActive && !disabled}
         clickHandler={clickHandler}
       />
-      {isActive && typeof cancelClickHandler !== 'undefined' && (
-        <CancelButton clickHandler={() => cancelClickHandler(id)} />
-      )}
+      {isActive && <CancelButton clickHandler={cancelClickHandler} />}
     </div>
   );
 };

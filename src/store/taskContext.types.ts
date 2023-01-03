@@ -8,6 +8,7 @@ export interface TaskContextProps {
   addNewTaskHandler: (text: string) => void;
   markAsCompletedHandler: (id: string) => void;
   deleteHandler: (id: string) => void;
+  editHandler: (id: string, text: string) => void;
 }
 
 export interface TaskContextProviderProps {

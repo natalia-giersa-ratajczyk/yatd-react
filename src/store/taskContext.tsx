@@ -10,6 +10,7 @@ const TaskContext = React.createContext<TaskContextProps>({
   addNewTaskHandler: () => {},
   markAsCompletedHandler: () => {},
   deleteHandler: () => {},
+  editHandler: () => {},
 });
 
 export const TaskContextProvider = ({ children }: TaskContextProviderProps) => {
@@ -38,8 +39,22 @@ export const TaskContextProvider = ({ children }: TaskContextProviderProps) => {
     setCompletedTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
   };
 
+  const editHandler = (id: string, text: string) => {
+    setTasks((prevTasks) =>
+      prevTasks.map((task) => {
+        if (task.id === id) {
+          return { ...task, text };
+        }
+
+        return task;
+      }),
+    );
+  };
+
   return (
-    <TaskContext.Provider value={{ tasks, completedTasks, addNewTaskHandler, markAsCompletedHandler, deleteHandler }}>
+    <TaskContext.Provider
+      value={{ tasks, completedTasks, addNewTaskHandler, markAsCompletedHandler, deleteHandler, editHandler }}
+    >
       {children}
     </TaskContext.Provider>
   );

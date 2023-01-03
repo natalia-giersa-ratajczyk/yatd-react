@@ -32,7 +32,6 @@ const TasksList = ({ tasks, hasCompletedTasks = false }: TasksListProps) => {
   };
 
   // TODO: Add editing functionality.
-  // TODO: Add deletion functionality.
 
   return (
     <div className={styles['tasks-list']}>

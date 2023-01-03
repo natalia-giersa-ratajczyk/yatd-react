@@ -1,7 +1,15 @@
 import styles from './Input.module.css';
 import { InputProps } from './Input.types';
 
-const Input = ({ id, name, placeholder, value, changeHandler, blurHandler, disabled = false }: InputProps) => {
+const Input = ({
+  id,
+  name,
+  placeholder,
+  value,
+  changeHandler = () => {},
+  blurHandler,
+  disabled = false,
+}: InputProps) => {
   const disabledStyles = disabled ? styles['input-disabled'] : '';
 
   return (

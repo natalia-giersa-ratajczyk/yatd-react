@@ -7,15 +7,11 @@ import styles from './TasksList.module.css';
 import { TasksListProps } from './TasksList.types';
 
 const TasksList = ({ tasks, hasCompletedTasks = false }: TasksListProps) => {
-  const { markAsCompletedHandler, deleteHandler } = useContext(TaskContext);
+  const { markAsCompletedHandler, deleteHandler, editHandler } = useContext(TaskContext);
 
   if (tasks.length === 0) {
     return <></>;
   }
-
-  const onChange = () => {
-    console.log('choćby dupa');
-  };
 
   const clickHandler = (id: string) => {
     if (hasCompletedTasks) {
@@ -31,8 +27,6 @@ const TasksList = ({ tasks, hasCompletedTasks = false }: TasksListProps) => {
     deleteHandler(id);
   };
 
-  // TODO: Add editing functionality.
-
   return (
     <div className={styles['tasks-list']}>
       {tasks.map(({ id, text, isCompleted }) => (
@@ -42,7 +36,7 @@ const TasksList = ({ tasks, hasCompletedTasks = false }: TasksListProps) => {
           name={id}
           value={text}
           disabled={isCompleted}
-          changeHandler={onChange}
+          changeHandler={(event) => editHandler(id, event.target.value)}
           clickHandler={clickHandler}
           cancelClickHandler={cancelClickHandler}
         />

@@ -2,5 +2,5 @@ import { CheckboxFieldProps } from '@/components/CheckboxField/CheckboxField.typ
 
 export type TaskItemProps = {
   taskClickHandler?: () => void;
-  cancelClickHandler?: () => void;
+  cancelClickHandler?: (id: string) => void;
 } & CheckboxFieldProps;

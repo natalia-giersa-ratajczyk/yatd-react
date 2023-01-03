@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
 import React, { useState } from 'react';
 
 import { Tasks } from '@/interfaces/task';
@@ -10,7 +9,7 @@ const TaskContext = React.createContext<TaskContextProps>({
   completedTasks: [],
   addNewTaskHandler: () => {},
   markAsCompletedHandler: () => {},
-  // deleteHandler: () => {},
+  deleteHandler: () => {},
 });
 
 export const TaskContextProvider = ({ children }: TaskContextProviderProps) => {
@@ -34,8 +33,13 @@ export const TaskContextProvider = ({ children }: TaskContextProviderProps) => {
     setCompletedTasks((prevTasks) => [...prevTasks, completedTask]);
   };
 
+  const deleteHandler = (id: string) => {
+    setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
+    setCompletedTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
+  };
+
   return (
-    <TaskContext.Provider value={{ tasks, completedTasks, addNewTaskHandler, markAsCompletedHandler }}>
+    <TaskContext.Provider value={{ tasks, completedTasks, addNewTaskHandler, markAsCompletedHandler, deleteHandler }}>
       {children}
     </TaskContext.Provider>
   );

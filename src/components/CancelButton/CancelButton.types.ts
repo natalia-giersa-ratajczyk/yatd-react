@@ -1,3 +1,5 @@
+import { MouseEvent } from 'react';
+
 export interface CancelButtonProps {
-  clickHandler?: () => void;
+  clickHandler?: (event: MouseEvent<HTMLButtonElement>) => void;
 }

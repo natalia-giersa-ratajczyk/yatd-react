@@ -37,5 +37,6 @@ module.exports = {
     'simple-import-sort/imports': 'warn',
     'simple-import-sort/exports': 'warn',
     'react/react-in-jsx-scope': 'off',
+    '@typescript-eslint/no-empty-function': 'off',
   },
 };

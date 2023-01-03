@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
 import { useState } from 'react';
 
 import CheckIcon from '@/assets/icons/check.svg';

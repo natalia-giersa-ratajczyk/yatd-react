@@ -7,7 +7,7 @@ import styles from './TasksList.module.css';
 import { TasksListProps } from './TasksList.types';
 
 const TasksList = ({ tasks, hasCompletedTasks = false }: TasksListProps) => {
-  const { markAsCompletedHandler } = useContext(TaskContext);
+  const { markAsCompletedHandler, deleteHandler } = useContext(TaskContext);
 
   if (tasks.length === 0) {
     return <></>;
@@ -24,8 +24,14 @@ const TasksList = ({ tasks, hasCompletedTasks = false }: TasksListProps) => {
     markAsCompletedHandler(id);
   };
 
+  const cancelClickHandler = (id: string) => {
+    if (typeof tasks === 'undefined') {
+      return;
+    }
+    deleteHandler(id);
+  };
+
   // TODO: Add editing functionality.
-  // TODO: Add deletion functionality.
 
   return (
     <div className={styles['tasks-list']}>
@@ -38,6 +44,7 @@ const TasksList = ({ tasks, hasCompletedTasks = false }: TasksListProps) => {
           disabled={isCompleted}
           changeHandler={onChange}
           clickHandler={clickHandler}
+          cancelClickHandler={cancelClickHandler}
         />
       ))}
     </div>

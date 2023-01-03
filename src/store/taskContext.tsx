@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Tasks } from '@/interfaces/task';
 
@@ -14,8 +14,15 @@ const TaskContext = React.createContext<TaskContextProps>({
 });
 
 export const TaskContextProvider = ({ children }: TaskContextProviderProps) => {
-  const [tasks, setTasks] = useState<Tasks>([]);
-  const [completedTasks, setCompletedTasks] = useState<Tasks>([]);
+  const [tasks, setTasks] = useState<Tasks>(JSON.parse(localStorage.getItem('tasks') ?? '') ?? []);
+  const [completedTasks, setCompletedTasks] = useState<Tasks>(
+    JSON.parse(localStorage.getItem('completedTasks') ?? '') ?? [],
+  );
+
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+    localStorage.setItem('completedTasks', JSON.stringify(completedTasks));
+  }, [tasks, completedTasks]);
 
   const addNewTaskHandler = (text: string) => {
     setTasks((prevTasks) => [...prevTasks, { id: text, text, isCompleted: false }]);
@@ -30,7 +37,6 @@ export const TaskContextProvider = ({ children }: TaskContextProviderProps) => {
     completedTask.isCompleted = true;
 
     setTasks((prevTasks) => prevTasks.filter((task) => task !== completedTask));
-
     setCompletedTasks((prevTasks) => [...prevTasks, completedTask]);
   };
 

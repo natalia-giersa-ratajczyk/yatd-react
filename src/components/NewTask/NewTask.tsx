@@ -1,5 +1,6 @@
 import { FormEvent, useContext, useState } from 'react';
 
+import AddButton from '@/components/AddButton';
 import Input from '@/components/Input';
 import TaskContext from '@/store/taskContext';
 
@@ -10,13 +11,17 @@ const NewTask = () => {
 
   const { addNewTaskHandler } = useContext(TaskContext);
 
+  const addTask = () => {
+    addNewTaskHandler(value);
+    setValue('');
+  };
+
   const submitHandler = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (value === '') {
       return;
     }
-    addNewTaskHandler(value);
-    setValue('');
+    addTask();
   };
 
   return (
@@ -28,6 +33,7 @@ const NewTask = () => {
         value={value ?? ''}
         changeHandler={(event) => setValue(event.target.value)}
       />
+      <AddButton />
     </form>
   );
 };

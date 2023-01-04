@@ -28,7 +28,7 @@ export const TaskContextProvider = ({ children }: TaskContextProviderProps) => {
   }, [tasks, completedTasks]);
 
   const addNewTaskHandler = (text: string) => {
-    setTasks((prevTasks) => [...prevTasks, { id: text, text, isCompleted: false }]);
+    setTasks((prevTasks) => [...prevTasks, { id: crypto.randomUUID(), text, isCompleted: false }]);
   };
 
   const markAsCompletedHandler = (id: string) => {

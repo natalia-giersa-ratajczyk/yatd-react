@@ -1,3 +1,4 @@
+import { nanoid } from 'nanoid';
 import React, { useEffect, useState } from 'react';
 
 import { Tasks } from '@/interfaces/task';
@@ -28,7 +29,7 @@ export const TaskContextProvider = ({ children }: TaskContextProviderProps) => {
   }, [tasks, completedTasks]);
 
   const addNewTaskHandler = (text: string) => {
-    setTasks((prevTasks) => [...prevTasks, { id: text, text, isCompleted: false }]);
+    setTasks((prevTasks) => [...prevTasks, { id: nanoid(), text, isCompleted: false }]);
   };
 
   const markAsCompletedHandler = (id: string) => {

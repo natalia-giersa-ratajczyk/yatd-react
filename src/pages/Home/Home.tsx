@@ -1,15 +1,21 @@
 import ActiveTasks from '@/components/ActiveTasks';
 import CompletedTasks from '@/components/CompletedTasks';
 import Footer from '@/components/Footer';
-import Logo from '@/components/Logo';
+import Header from '@/components/Header';
 import NewTask from '@/components/NewTask';
+import * as Paths from '@/constants/routes';
 import Container from '@/containers/Container';
 import { TaskContextProvider } from '@/store/taskContext';
 
 const Home = () => {
   return (
     <>
-      <Logo />
+      <Header
+        button={{
+          link: Paths.ADD_TASK_PATH,
+          text: 'Add task',
+        }}
+      />
       <Container>
         <TaskContextProvider>
           <NewTask />

@@ -12,6 +12,7 @@ const CheckboxField = ({
   checked,
   changeHandler,
   blurHandler,
+  keyDownHandler,
   isActive = false,
   disabled = false,
   clickHandler,
@@ -33,6 +34,7 @@ const CheckboxField = ({
         value={value}
         changeHandler={changeHandler}
         blurHandler={blurHandler}
+        keyDownHandler={keyDownHandler}
         disabled={disabled}
       />
     </div>

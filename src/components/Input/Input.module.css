@@ -4,7 +4,7 @@
   font-size: var(--regular-text-size);
   color: var(--text-color);
   padding: 4px 8px;
-  width: 100%;
+  width: calc(100% - 3.2rem);
 }
 
 .input-disabled {

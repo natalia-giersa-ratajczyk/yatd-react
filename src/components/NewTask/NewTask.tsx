@@ -35,6 +35,7 @@ const NewTask = () => {
         name="newTask"
         placeholder="Add a new task..."
         value={value ?? ''}
+        ref={inputRef}
         changeHandler={(event) => setValue(event.target.value)}
       />
       <Button icon={<AddIcon />} type="submit">

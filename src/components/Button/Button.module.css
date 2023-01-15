@@ -1,6 +1,9 @@
 .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
   font-size: var(--regular-text-size);
-  background-color: var(--white-color);
   padding: 8px 1.2rem;
   border: 1px solid var(--accent-darker-color);
   border-radius: 6px;
@@ -8,11 +11,36 @@
   cursor: pointer;
 }
 
+.button svg {
+  height: 1.6rem;
+  width: 1.6rem;
+}
+
+.button > * {
+  color: inherit;
+}
+
 .button:hover {
   box-shadow: var(--accent-shadow);
 }
 
-.link {
+.primary {
+  background-color: var(--accent-color);
+  color: var(--white-color);
+}
+
+.secondary {
+  background-color: var(--white-color);
   color: var(--accent-color);
-  text-decoration: none;
+}
+
+.button:disabled {
+  background-color: var(--light-gray-color);
+  border-color: var(--gray-color);
+  color: var(--gray-color);
+  cursor: default;
+}
+
+.button:hover:disabled {
+  box-shadow: none;
 }

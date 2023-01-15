@@ -1,8 +1,9 @@
-import { useRef, useState } from 'react';
+import { ChangeEvent, useContext, useRef, useState } from 'react';
 
 import CancelButton from '@/components/CancelButton';
 import CheckboxField from '@/components/CheckboxField';
 import useOnClickOutside from '@/hooks/useOnClickOutside';
+import TaskContext from '@/store/taskContext';
 
 import styles from './TaskItem.module.css';
 import { TaskItemProps } from './TaskItem.types';
@@ -13,19 +14,32 @@ const TaskItem = ({
   checked = false,
   disabled = false,
   value = '',
-  changeHandler,
+  isCompleted = false,
   blurHandler,
-  clickHandler,
-  cancelClickHandler = undefined,
 }: TaskItemProps) => {
   const [isActive, setIsActive] = useState(false);
+
+  const { markAsCompletedHandler, deleteHandler, editHandler } = useContext(TaskContext);
+
+  const clickHandler = () => {
+    if (isCompleted) {
+      return;
+    }
+    markAsCompletedHandler(id);
+  };
+
+  const cancelClickHandler = () => {
+    deleteHandler(id);
+  };
+
+  const changeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+    editHandler(id, event.target.value);
+  };
 
   const taskItemRef = useRef<HTMLDivElement>(null);
 
   const activeTaskItemStyles = isActive ? styles['task-item-active'] : '';
-
   const disabledTaskItemStyles = disabled ? styles['task-item-disabled'] : '';
-
   const disabledActiveTaskItemStyles = disabled && isActive ? styles['task-item-disabled-active'] : '';
 
   const onClick = () => {
@@ -42,9 +56,7 @@ const TaskItem = ({
     <div
       className={`${styles['task-item']} ${activeTaskItemStyles} ${disabledTaskItemStyles} ${disabledActiveTaskItemStyles}`}
       ref={taskItemRef}
-      onClick={() => {
-        onClick();
-      }}
+      onClick={onClick}
     >
       <CheckboxField
         id={id}
@@ -57,9 +69,7 @@ const TaskItem = ({
         isActive={isActive && !disabled}
         clickHandler={clickHandler}
       />
-      {isActive && typeof cancelClickHandler !== 'undefined' && (
-        <CancelButton clickHandler={() => cancelClickHandler(id)} />
-      )}
+      {isActive && typeof cancelClickHandler !== 'undefined' && <CancelButton clickHandler={cancelClickHandler} />}
     </div>
   );
 };

@@ -44,7 +44,6 @@ const TasksList = ({ tasks, hasCompletedTasks = false }: TasksListProps) => {
           id={id}
           name={id}
           value={text}
-          ref={inputRef}
           disabled={isCompleted}
           changeHandler={(event) => edit(id, event)}
           clickHandler={clickHandler}

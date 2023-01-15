@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+
 import ActiveTasks from '@/components/ActiveTasks';
 import CompletedTasks from '@/components/CompletedTasks';
 import Footer from '@/components/Footer';
@@ -8,12 +10,14 @@ import Container from '@/containers/Container';
 import { TaskContextProvider } from '@/store/taskContext';
 
 const Home = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <Header
         button={{
-          link: Paths.ADD_TASK_PATH,
-          text: 'Add task',
+          children: <span>Add task</span>,
+          onClick: () => navigate(Paths.ADD_TASK_PATH),
         }}
       />
       <Container>

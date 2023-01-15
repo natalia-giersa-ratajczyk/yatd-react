@@ -1,6 +1,7 @@
 import { FormEvent, useContext, useRef, useState } from 'react';
 
-import AddButton from '@/components/AddButton';
+import AddIcon from '@/assets/icons/add.svg';
+import Button from '@/components/Button';
 import Input from '@/components/Input';
 import TaskContext from '@/store/taskContext';
 
@@ -37,7 +38,9 @@ const NewTask = () => {
         ref={inputRef}
         changeHandler={(event) => setValue(event.target.value)}
       />
-      <AddButton />
+      <Button icon={<AddIcon />} type="submit">
+        <span>Add</span>
+      </Button>
     </form>
   );
 };

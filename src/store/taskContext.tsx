@@ -17,9 +17,9 @@ const TaskContext = React.createContext<TaskContextProps>({
 });
 
 export const TaskContextProvider = ({ children }: TaskContextProviderProps) => {
-  const [tasks, setTasks] = useState<Tasks>(JSON.parse(localStorage.getItem(LOCALE_STORAGE_TASKS_KEY) ?? '') ?? []);
+  const [tasks, setTasks] = useState<Tasks>(JSON.parse(localStorage.getItem(LOCALE_STORAGE_TASKS_KEY) ?? '[]') ?? []);
   const [completedTasks, setCompletedTasks] = useState<Tasks>(
-    JSON.parse(localStorage.getItem(LOCAL_STORAGE_COMPLETED_TASKS_KEY) ?? '') ?? [],
+    JSON.parse(localStorage.getItem(LOCAL_STORAGE_COMPLETED_TASKS_KEY) ?? '[]') ?? [],
   );
 
   useEffect(() => {

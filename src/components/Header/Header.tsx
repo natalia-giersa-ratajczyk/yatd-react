@@ -5,12 +5,14 @@ import styles from './Header.module.css';
 import { HeaderProps } from './Header.types';
 
 const Header = ({ button }: HeaderProps) => {
-  const { link, text } = button;
+  const { children, onClick } = button;
 
   return (
     <div className={styles.header}>
       <Logo />
-      <Button link={link} text={text} />
+      <Button onClick={onClick} variant="secondary">
+        {children}
+      </Button>
     </div>
   );
 };

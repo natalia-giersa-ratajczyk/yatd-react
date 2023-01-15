@@ -1,14 +1,24 @@
-import { Link } from 'react-router-dom';
-
 import styles from './Button.module.css';
 import { ButtonProps } from './Button.types';
 
-const Button = ({ link, text }: ButtonProps) => {
+const Button = ({
+  children,
+  onClick,
+  disabled = false,
+  icon,
+  variant = 'primary',
+  className = '',
+  type = 'button',
+}: ButtonProps) => {
   return (
-    <button className={styles.button}>
-      <Link to={link} className={styles.link}>
-        {text}
-      </Link>
+    <button
+      type={type}
+      className={`${styles.button} ${styles[variant]} ${className}`}
+      onClick={onClick}
+      disabled={disabled}
+    >
+      {children}
+      {icon}
     </button>
   );
 };

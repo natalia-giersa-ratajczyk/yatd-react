@@ -1,75 +1,78 @@
-import { forwardRef, useRef, useState } from 'react';
+import { ChangeEvent, KeyboardEvent, useContext, useRef, useState } from 'react';
 
 import CancelButton from '@/components/CancelButton';
 import CheckboxField from '@/components/CheckboxField';
 import useOnClickOutside from '@/hooks/useOnClickOutside';
+import TaskContext from '@/store/taskContext';
 
 import styles from './TaskItem.module.css';
 import { TaskItemProps } from './TaskItem.types';
 
-const TaskItem = forwardRef<HTMLInputElement, TaskItemProps>(
-  (
-    {
-      id,
-      name,
-      checked = false,
-      disabled = false,
-      value = '',
-      changeHandler,
-      blurHandler,
-      clickHandler,
-      cancelClickHandler = undefined,
-    },
-    ref,
-  ) => {
-    const [isActive, setIsActive] = useState(false);
+const TaskItem = ({ id, name, checked = false, disabled = false, value = '', isCompleted = false }: TaskItemProps) => {
+  const [isActive, setIsActive] = useState(false);
 
-    const taskItemRef = useRef<HTMLDivElement>(null);
+  const { markAsCompletedHandler, deleteHandler, editHandler } = useContext(TaskContext);
 
-    const activeTaskItemStyles = isActive ? styles['task-item-active'] : '';
+  const clickHandler = () => {
+    if (isCompleted) {
+      return;
+    }
+    markAsCompletedHandler(id);
+  };
 
-    const disabledTaskItemStyles = disabled ? styles['task-item-disabled'] : '';
+  const cancelClickHandler = () => {
+    deleteHandler(id);
+  };
 
-    const disabledActiveTaskItemStyles = disabled && isActive ? styles['task-item-disabled-active'] : '';
+  const changeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+    editHandler(id, event.target.value);
+  };
 
-    const onClick = () => {
-      setIsActive(true);
-    };
+  const keyDownHandler = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.key !== 'Enter') {
+      return;
+    }
 
-    const clickOutsideHandler = () => {
-      setIsActive(false);
-    };
+    event.currentTarget.blur();
+    setIsActive(false);
+  };
 
-    useOnClickOutside(taskItemRef, clickOutsideHandler);
+  const taskClickHandler = () => {
+    setIsActive(true);
+  };
 
-    return (
-      <div
-        className={`${styles['task-item']} ${activeTaskItemStyles} ${disabledTaskItemStyles} ${disabledActiveTaskItemStyles}`}
-        ref={taskItemRef}
-        onClick={() => {
-          onClick();
-        }}
-      >
-        <CheckboxField
-          id={id}
-          name={name}
-          checked={checked}
-          disabled={disabled}
-          value={value}
-          ref={ref}
-          changeHandler={changeHandler}
-          blurHandler={blurHandler}
-          isActive={isActive && !disabled}
-          clickHandler={clickHandler}
-        />
-        {isActive && typeof cancelClickHandler !== 'undefined' && (
-          <CancelButton clickHandler={() => cancelClickHandler(id)} />
-        )}
-      </div>
-    );
-  },
-);
+  const clickOutsideHandler = () => {
+    setIsActive(false);
+  };
 
-TaskItem.displayName = 'TaskItem';
+  const taskItemRef = useRef<HTMLDivElement>(null);
+
+  const activeTaskItemStyles = isActive ? styles['task-item-active'] : '';
+  const disabledTaskItemStyles = disabled ? styles['task-item-disabled'] : '';
+  const disabledActiveTaskItemStyles = disabled && isActive ? styles['task-item-disabled-active'] : '';
+
+  useOnClickOutside(taskItemRef, clickOutsideHandler);
+
+  return (
+    <div
+      className={`${styles['task-item']} ${activeTaskItemStyles} ${disabledTaskItemStyles} ${disabledActiveTaskItemStyles}`}
+      ref={taskItemRef}
+      onClick={taskClickHandler}
+    >
+      <CheckboxField
+        id={id}
+        name={name}
+        checked={checked}
+        disabled={disabled}
+        value={value}
+        changeHandler={changeHandler}
+        keyDownHandler={keyDownHandler}
+        isActive={isActive && !disabled}
+        clickHandler={clickHandler}
+      />
+      {isActive && <CancelButton clickHandler={cancelClickHandler} />}
+    </div>
+  );
+};
 
 export default TaskItem;

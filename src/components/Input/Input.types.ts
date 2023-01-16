@@ -1,4 +1,4 @@
-import { ChangeEvent, FocusEvent } from 'react';
+import { ChangeEvent, FocusEvent, KeyboardEvent } from 'react';
 
 export interface InputProps {
   id: string;
@@ -6,6 +6,7 @@ export interface InputProps {
   disabled?: boolean;
   placeholder?: string;
   value?: string;
+  keyDownHandler?: (event: KeyboardEvent<HTMLInputElement>) => void;
   changeHandler?: (event: ChangeEvent<HTMLInputElement>) => void;
   blurHandler?: (event: FocusEvent<HTMLInputElement>) => void;
 }

@@ -4,7 +4,7 @@ import styles from './Input.module.css';
 import { InputProps } from './Input.types';
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ id, name, placeholder, value, changeHandler = () => {}, blurHandler, disabled = false }, ref) => {
+  ({ id, name, placeholder, value, changeHandler = () => {}, blurHandler, keyDownHandler, disabled = false }, ref) => {
     const disabledStyles = disabled ? styles['input-disabled'] : '';
 
     return (
@@ -19,6 +19,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         onChange={changeHandler}
         onBlur={blurHandler}
         disabled={disabled}
+        onKeyDown={keyDownHandler}
       />
     );
   },

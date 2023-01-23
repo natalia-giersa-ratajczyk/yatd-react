@@ -5,6 +5,7 @@
 
 .body {
   font-size: var(--regular-text-size);
+  font-weight: 700;
 }
 
 .small {

@@ -1,4 +1,4 @@
-export interface TextFieldProps {
+export interface TextAreaProps {
   id: string;
   name: string;
   label: string;

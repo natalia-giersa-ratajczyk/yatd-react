@@ -1,20 +1,21 @@
 import CoffeeIcon from '@/assets/icons/coffee.svg';
 import HeartIcon from '@/assets/icons/heart.svg';
 
+import Typography from '../Typography';
 import styles from './Footer.module.css';
 
 const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={`${styles['footer-box']} ${styles['footer-left-box']}`}>
-        <span>Crafted with</span>
+        <Typography text="Crafted with" color="gray" variant="small" />
         <CoffeeIcon />
-        <span>by Furu.DEV</span>
+        <Typography text="by Furu.DEV" color="gray" variant="small" />
       </div>
       <div className={`${styles['footer-box']} ${styles['footer-right-box']}`}>
-        <span>Coded with</span>
+        <Typography text="Coded with" color="gray" variant="small" />
         <HeartIcon />
-        <span>by N.Giersa</span>
+        <Typography text="by N.Giersa" color="gray" variant="small" />
       </div>
     </footer>
   );

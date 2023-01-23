@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import Typography from '@/components/Typography';
 import * as Paths from '@/constants/routes';
 import Container from '@/containers/Container';
 
@@ -16,7 +17,9 @@ const AddTask = () => {
           onClick: () => navigate(Paths.HOME_PATH),
         }}
       />
-      <Container></Container>
+      <Container>
+        <Typography text="Add your new task" variant="heading" renderAs="h2" />
+      </Container>
       <Footer />
     </>
   );

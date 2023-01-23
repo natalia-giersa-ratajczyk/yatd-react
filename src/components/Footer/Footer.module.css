@@ -25,10 +25,10 @@
   border-radius: 8px 4rem 0 0;
 }
 
-.footer-box span {
+/* .footer-box span {
   font-size: var(--small-text-size);
   color: var(--gray-color);
-}
+} */
 
 .footer-box svg {
   height: 1.6rem;

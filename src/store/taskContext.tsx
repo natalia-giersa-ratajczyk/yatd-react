@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { Tasks } from '@/interfaces/task';
+import { Tasks, TaskWithoutId } from '@/interfaces/task';
 
 import { TaskContextProps, TaskContextProviderProps } from './taskContext.types';
 
@@ -27,8 +27,8 @@ export const TaskContextProvider = ({ children }: TaskContextProviderProps) => {
     localStorage.setItem(LOCAL_STORAGE_COMPLETED_TASKS_KEY, JSON.stringify(completedTasks));
   }, [tasks, completedTasks]);
 
-  const addNewTaskHandler = (text: string) => {
-    setTasks((prevTasks) => [...prevTasks, { id: crypto.randomUUID(), text, isCompleted: false }]);
+  const addNewTaskHandler = ({ text, description = '', tags = '' }: TaskWithoutId) => {
+    setTasks((prevTasks) => [...prevTasks, { id: crypto.randomUUID(), text, isCompleted: false, description, tags }]);
   };
 
   const markAsCompletedHandler = (id: string) => {

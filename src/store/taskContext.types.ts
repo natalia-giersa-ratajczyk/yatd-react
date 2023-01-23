@@ -1,11 +1,11 @@
 import { ReactNode } from 'react';
 
-import { Tasks } from '@/interfaces/task';
+import { Tasks, TaskWithoutId } from '@/interfaces/task';
 
 export interface TaskContextProps {
   tasks: Tasks;
   completedTasks: Tasks;
-  addNewTaskHandler: (text: string) => void;
+  addNewTaskHandler: (task: TaskWithoutId) => void;
   markAsCompletedHandler: (id: string) => void;
   deleteHandler: (id: string) => void;
   editHandler: (id: string, text: string) => void;

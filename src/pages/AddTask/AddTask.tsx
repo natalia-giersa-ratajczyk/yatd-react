@@ -1,4 +1,4 @@
-import { ChangeEvent, useRef, useState } from 'react';
+import { ChangeEvent, useContext, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import AddIcon from '@/assets/icons/add.svg';
@@ -10,6 +10,8 @@ import TextField from '@/components/TextField';
 import Typography from '@/components/Typography';
 import * as Paths from '@/constants/routes';
 import Container from '@/containers/Container';
+import { TaskWithoutId } from '@/interfaces/task';
+import TaskContext from '@/store/taskContext';
 
 import styles from './AddTask.module.css';
 const AddTask = () => {
@@ -26,6 +28,8 @@ const AddTask = () => {
   const titleId = crypto.randomUUID();
   const descriptionId = crypto.randomUUID();
   const tagsId = crypto.randomUUID();
+
+  const { addNewTaskHandler } = useContext(TaskContext);
 
   const titleChangeHandler = () => {
     if (typeof titleRef === 'undefined' || titleRef.current === null) {
@@ -51,12 +55,12 @@ const AddTask = () => {
   const submitHandler = (event: ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const formData = {
-      title,
+    const formData: TaskWithoutId = {
+      text: title,
       description,
       tags,
     };
-    console.log(formData);
+    addNewTaskHandler(formData);
 
     setTitle('');
     setDescription('');

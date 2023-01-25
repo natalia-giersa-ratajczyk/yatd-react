@@ -51,3 +51,5 @@ export const Icon = styled.span`
     color: ${({ theme }) => theme.colors.whiteColor};
   }
 `;
+
+export const Input = styled.input``;

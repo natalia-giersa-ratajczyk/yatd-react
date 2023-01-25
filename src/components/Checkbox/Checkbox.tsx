@@ -25,7 +25,7 @@ const Checkbox = ({
         <CheckIcon />
       </Styles.Icon>
 
-      <input
+      <Styles.Input
         id={id}
         name={name}
         type="checkbox"

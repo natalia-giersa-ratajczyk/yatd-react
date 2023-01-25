@@ -12,7 +12,7 @@ const TextFieldInner = (
   return (
     <div className={styles.textfield}>
       <label htmlFor={id}>
-        <Typography text={label} variant="body" renderAs="span" />
+        <Typography text={label} variant="body" />
       </label>
       <input type="text" id={id} name={name} value={value} placeholder={placeholder} ref={ref} onChange={onChange} />
     </div>

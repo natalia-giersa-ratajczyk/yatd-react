@@ -10,9 +10,9 @@ const TextAreaInner = (
   ref: ForwardedRef<HTMLTextAreaElement>,
 ) => {
   return (
-    <div className={styles.textarea}>
+    <div className={styles.wrapper}>
       <label htmlFor={id}>
-        <Typography text={label} variant="body" renderAs="span" />
+        <Typography text={label} variant="body" />
       </label>
       <textarea id={id} name={name} value={value} placeholder={placeholder} ref={ref} onChange={onChange} />
     </div>

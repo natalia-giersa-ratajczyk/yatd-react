@@ -14,6 +14,7 @@ import { TaskWithoutId } from '@/interfaces/task';
 import TaskContext from '@/store/taskContext';
 
 import styles from './AddTask.module.css';
+
 const AddTask = () => {
   const navigate = useNavigate();
 

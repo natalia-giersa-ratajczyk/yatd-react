@@ -1,7 +1,7 @@
 import CoffeeIcon from '@/assets/icons/coffee.svg';
 import HeartIcon from '@/assets/icons/heart.svg';
+import Typography from '@/components/Typography';
 
-import Typography from '../Typography';
 import styles from './Footer.module.css';
 
 const Footer = () => {

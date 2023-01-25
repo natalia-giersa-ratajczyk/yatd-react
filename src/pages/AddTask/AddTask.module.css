@@ -1,0 +1,6 @@
+.from {
+  display: flex;
+  flex-direction: row;
+  gap: 24rem;
+  margin-bottom: 1rem;
+}

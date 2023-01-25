@@ -1,13 +1,13 @@
 import CloseIcon from '@/assets/icons/close.svg';
 
-import styles from './CancelButton.module.css';
+import * as Styles from './CancelButton.styles';
 import { CancelButtonProps } from './CancelButton.types';
 
 const CancelButton = ({ clickHandler = () => {} }: CancelButtonProps) => {
   return (
-    <button className={styles['cancel-btn']} onClick={clickHandler}>
+    <Styles.CancelButton onClick={clickHandler}>
       <CloseIcon />
-    </button>
+    </Styles.CancelButton>
   );
 };
 

@@ -4,16 +4,16 @@ import ListHeader from '@/components/ListHeader';
 import TasksList from '@/components/TasksList';
 import TaskContext from '@/store/taskContext';
 
-import styles from './ActiveTasks.module.css';
+import * as Styles from './ActiveTasks.styles';
 
 const ActiveTasks = () => {
   const { tasks } = useContext(TaskContext);
 
   return (
-    <div className={styles['active-tasks']}>
+    <Styles.ActiveTasks>
       <ListHeader text="Your tasks" counter={tasks.length} />
       <TasksList tasks={tasks} />
-    </div>
+    </Styles.ActiveTasks>
   );
 };
 

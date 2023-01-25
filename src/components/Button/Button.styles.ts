@@ -1,6 +1,12 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { StyledButtonProps } from './Button.types';
+
+const iconSize = '1.6rem';
+const size = (value: number | string) => css`
+  width: ${value};
+  height: ${value};
+`;
 
 export const Button = styled.button<StyledButtonProps>`
   display: flex;
@@ -18,8 +24,7 @@ export const Button = styled.button<StyledButtonProps>`
   color: ${({ theme, $variant }) => ($variant === 'secondary' ? theme.colors.accentColor : theme.colors.whiteColor)};
 
   & svg {
-    height: 1.6rem;
-    width: 1.6rem;
+    ${size(iconSize)}
   }
 
   & > * {

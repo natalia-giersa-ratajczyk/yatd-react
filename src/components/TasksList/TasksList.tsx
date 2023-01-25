@@ -8,8 +8,6 @@ const TasksList = ({ tasks, hasCompletedTasks = false }: TasksListProps) => {
     return <></>;
   }
 
-  //TODO: Make blur functionality work properly
-
   return (
     <div className={styles['tasks-list']}>
       {tasks.map(({ id, text, isCompleted }) => (

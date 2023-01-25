@@ -4,6 +4,11 @@
 }
 
 .body {
+  font-size: var(--regular-text-size);
+  font-weight: 700;
+}
+
+.small {
   font-size: var(--small-text-size);
 }
 

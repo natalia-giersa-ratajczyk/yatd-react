@@ -8,14 +8,14 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={`${styles['footer-box']} ${styles['footer-left-box']}`}>
+        <Typography text="Crafted with" color="gray" variant="small" />
         <CoffeeIcon />
-        <Typography text="Crafted with" color="accent" variant="body" />
-        <span>by Furu.DEV</span>
+        <Typography text="by Furu.DEV" color="gray" variant="small" />
       </div>
       <div className={`${styles['footer-box']} ${styles['footer-right-box']}`}>
-        <span>Coded with</span>
+        <Typography text="Coded with" color="gray" variant="small" />
         <HeartIcon />
-        <Typography text="by N.Giersa" color="text" variant="body" renderAs="p" />
+        <Typography text="by N.Giersa" color="gray" variant="small" />
       </div>
     </footer>
   );

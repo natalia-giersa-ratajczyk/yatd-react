@@ -1,0 +1,33 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.wrapper textarea {
+  min-height: 14.5rem;
+  max-height: 22rem;
+  min-width: 100%;
+  max-width: 55rem;
+  padding: 1.8rem 1.6rem;
+  background-color: var(--white-color);
+  border: var(--border-lighter-gray);
+  border-radius: 8px;
+  font-size: var(--regular-text-size);
+  font-family: inherit;
+  color: var(--text-color);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.wrapper textarea::placeholder {
+  color: var(--gray-color);
+}
+
+.wrapper textarea:hover {
+  border-color: var(--light-gray-color);
+}
+
+.wrapper textarea:focus {
+  box-shadow: var(--card-shadow);
+  outline: none;
+}

@@ -1,6 +1,10 @@
-.from {
+.form {
   display: flex;
-  flex-direction: row;
-  gap: 24rem;
-  margin-bottom: 1rem;
+  flex-direction: column;
+  gap: 2.4rem;
+  margin-bottom: 10rem;
+}
+
+.form button {
+  align-self: flex-start;
 }

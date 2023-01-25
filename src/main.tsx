@@ -1,4 +1,3 @@
-import './index.css';
 import '@/theme/fonts';
 
 import React from 'react';

@@ -1,14 +1,12 @@
-import styles from './Logo.module.css';
+import * as Styles from './Logo.styles';
 
 const Logo = () => {
   return (
-    <div className={styles['logo-container']}>
-      <div className={styles['logo-box']}>
-        <h1 className={styles.logo}>
-          YA<span>TD</span>.
-        </h1>
-      </div>
-    </div>
+    <Styles.Wrapper>
+      <Styles.Logo>
+        YA<span>TD</span>.
+      </Styles.Logo>
+    </Styles.Wrapper>
   );
 };
 

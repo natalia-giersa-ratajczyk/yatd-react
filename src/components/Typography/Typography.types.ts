@@ -1,5 +1,5 @@
 import { ElementType } from 'react';
-import { DefaultTheme, FlattenInterpolation, ThemeProps } from 'styled-components';
+import { CssInterpolation } from 'styled-components';
 
 export type Variant = 'heading' | 'body' | 'small';
 export type Color = 'textColor' | 'accentColor' | 'grayColor';
@@ -12,7 +12,7 @@ export interface TypographyProps {
   renderAs?: Element;
 }
 
-export type StyledVariantConfig = Record<Variant, FlattenInterpolation<ThemeProps<DefaultTheme>>>;
+export type StyledVariantConfig = Record<Variant, CssInterpolation>;
 
 export type StyledTypographyProps = {
   $variant: TypographyProps['variant'];

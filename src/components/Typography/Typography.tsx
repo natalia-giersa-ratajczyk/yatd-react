@@ -1,22 +1,12 @@
-import styles from './Typography.module.css';
-import { ColorConfig, TypographyProps, VariantConfig } from './Typography.types';
+import * as Styles from './Typography.styles';
+import { TypographyProps } from './Typography.types';
 
-const Typography = ({ text, variant, color = 'text', renderAs = 'span' }: TypographyProps) => {
-  const Component = renderAs;
-
-  const colorConfig: ColorConfig = {
-    text: styles.text,
-    accent: styles.accent,
-    gray: styles.gray,
-  };
-
-  const variantConfig: VariantConfig = {
-    heading: styles.heading,
-    body: styles.body,
-    small: styles.small,
-  };
-
-  return <Component className={`${variantConfig[variant]} ${colorConfig[color]}`}>{text}</Component>;
+const Typography = ({ text, variant, color = 'textColor', renderAs = 'span' }: TypographyProps) => {
+  return (
+    <Styles.Typography as={renderAs} $variant={variant} $color={color}>
+      {text}
+    </Styles.Typography>
+  );
 };
 
 export default Typography;

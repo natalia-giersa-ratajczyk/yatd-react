@@ -9,4 +9,4 @@ export default {
   errorColor: '#ff7a7a',
   accentColor: '#5484ff',
   accentDarkerColor: '#4e74d7',
-} as const;
+};

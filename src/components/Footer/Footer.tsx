@@ -8,14 +8,14 @@ const Footer = () => {
   return (
     <Styles.Footer>
       <Styles.Box $side="left">
-        <Typography text="Crafted with" color="gray" variant="small" />
+        <Typography text="Crafted with" color="grayColor" variant="small" />
         <CoffeeIcon />
-        <Typography text="by Furu.DEV" color="gray" variant="small" />
+        <Typography text="by Furu.DEV" color="grayColor" variant="small" />
       </Styles.Box>
       <Styles.Box $side="right">
-        <Typography text="Coded with" color="gray" variant="small" />
+        <Typography text="Coded with" color="grayColor" variant="small" />
         <HeartIcon />
-        <Typography text="by N.Giersa" color="gray" variant="small" />
+        <Typography text="by N.Giersa" color="grayColor" variant="small" />
       </Styles.Box>
     </Styles.Footer>
   );

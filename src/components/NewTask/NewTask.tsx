@@ -3,12 +3,15 @@ import { FormEvent, useContext, useRef, useState } from 'react';
 import AddIcon from '@/assets/icons/add.svg';
 import Button from '@/components/Button';
 import Input from '@/components/Input';
+import { TaskWithoutId } from '@/interfaces/task';
 import TaskContext from '@/store/taskContext';
 
-import styles from './NewTask.module.css';
+import * as Styles from './NewTask.styles';
 
 const NewTask = () => {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState<TaskWithoutId>({
+    text: '',
+  });
 
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -16,12 +19,14 @@ const NewTask = () => {
 
   const addTask = () => {
     addNewTaskHandler(value);
-    setValue('');
+    setValue({
+      text: '',
+    });
   };
 
   const submitHandler = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (value === '') {
+    if (value.text === '') {
       return;
     }
     addTask();
@@ -29,19 +34,19 @@ const NewTask = () => {
   };
 
   return (
-    <form onSubmit={submitHandler} className={styles['new-task']}>
+    <Styles.NewTask onSubmit={submitHandler}>
       <Input
         id="newTask"
         name="newTask"
         placeholder="Add a new task..."
-        value={value ?? ''}
+        value={value.text ?? ''}
         ref={inputRef}
-        changeHandler={(event) => setValue(event.target.value)}
+        changeHandler={(event) => setValue({ text: event.target.value })}
       />
       <Button icon={<AddIcon />} type="submit">
         <span>Add</span>
       </Button>
-    </form>
+    </Styles.NewTask>
   );
 };
 

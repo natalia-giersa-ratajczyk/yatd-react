@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 import { StyledInputProps } from './Input.types';
 
-export const disabledStyles = css`
+const disabledStyles = css`
   color: ${({ theme }) => theme.colors.grayColor};
 `;
 

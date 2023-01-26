@@ -5,7 +5,7 @@ import CheckboxField from '@/components/CheckboxField';
 import useOnClickOutside from '@/hooks/useOnClickOutside';
 import TaskContext from '@/store/taskContext';
 
-import styles from './TaskItem.module.css';
+import * as Styles from './TaskItem.styles';
 import { TaskItemProps } from './TaskItem.types';
 
 const TaskItem = ({ id, name, checked = false, disabled = false, value = '', isCompleted = false }: TaskItemProps) => {
@@ -47,18 +47,10 @@ const TaskItem = ({ id, name, checked = false, disabled = false, value = '', isC
 
   const taskItemRef = useRef<HTMLDivElement>(null);
 
-  const activeTaskItemStyles = isActive ? styles['task-item-active'] : '';
-  const disabledTaskItemStyles = disabled ? styles['task-item-disabled'] : '';
-  const disabledActiveTaskItemStyles = disabled && isActive ? styles['task-item-disabled-active'] : '';
-
   useOnClickOutside(taskItemRef, clickOutsideHandler);
 
   return (
-    <div
-      className={`${styles['task-item']} ${activeTaskItemStyles} ${disabledTaskItemStyles} ${disabledActiveTaskItemStyles}`}
-      ref={taskItemRef}
-      onClick={taskClickHandler}
-    >
+    <Styles.TaskItem $isActive={isActive} $disabled={disabled} ref={taskItemRef} onClick={taskClickHandler}>
       <CheckboxField
         id={id}
         name={name}
@@ -71,7 +63,7 @@ const TaskItem = ({ id, name, checked = false, disabled = false, value = '', isC
         clickHandler={clickHandler}
       />
       {isActive && <CancelButton clickHandler={cancelClickHandler} />}
-    </div>
+    </Styles.TaskItem>
   );
 };
 

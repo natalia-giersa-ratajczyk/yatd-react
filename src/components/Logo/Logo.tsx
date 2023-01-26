@@ -4,7 +4,7 @@ const Logo = () => {
   return (
     <Styles.Wrapper>
       <Styles.Logo>
-        YA<span>TD</span>.
+        YA<Styles.Accent>TD</Styles.Accent>.
       </Styles.Logo>
     </Styles.Wrapper>
   );

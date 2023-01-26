@@ -11,8 +11,8 @@ export const Logo = styled.h1`
   font-size: 5.2rem;
   font-weight: 900;
   padding: 2.6rem 3rem;
+`;
 
-  & span {
-    color: ${({ theme }) => theme.colors.accentColor};
-  }
+export const Accent = styled.span`
+  color: ${({ theme }) => theme.colors.accentColor};
 `;

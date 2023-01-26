@@ -2,7 +2,7 @@ import { ForwardedRef, forwardRef } from 'react';
 
 import Typography from '@/components/Typography/Typography';
 
-import styles from './TextArea.module.css';
+import * as Styles from './TextArea.styles';
 import { TextAreaProps } from './TextArea.types';
 
 const TextAreaInner = (
@@ -10,12 +10,12 @@ const TextAreaInner = (
   ref: ForwardedRef<HTMLTextAreaElement>,
 ) => {
   return (
-    <div className={styles.wrapper}>
+    <Styles.Wrapper>
       <label htmlFor={id}>
         <Typography text={label} variant="body" />
       </label>
-      <textarea id={id} name={name} value={value} placeholder={placeholder} ref={ref} onChange={onChange} />
-    </div>
+      <Styles.TextArea id={id} name={name} value={value} placeholder={placeholder} ref={ref} onChange={onChange} />
+    </Styles.Wrapper>
   );
 };
 

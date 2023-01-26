@@ -2,7 +2,7 @@ import { ForwardedRef, forwardRef } from 'react';
 
 import Typography from '@/components/Typography/Typography';
 
-import styles from './TextField.module.css';
+import * as Styles from './TextField.styles';
 import { TextFieldProps } from './TextField.types';
 
 const TextFieldInner = (
@@ -10,12 +10,20 @@ const TextFieldInner = (
   ref: ForwardedRef<HTMLInputElement>,
 ) => {
   return (
-    <div className={styles.textfield}>
+    <Styles.TextField>
       <label htmlFor={id}>
         <Typography text={label} variant="body" />
       </label>
-      <input type="text" id={id} name={name} value={value} placeholder={placeholder} ref={ref} onChange={onChange} />
-    </div>
+      <Styles.Input
+        type="text"
+        id={id}
+        name={name}
+        value={value}
+        placeholder={placeholder}
+        ref={ref}
+        onChange={onChange}
+      />
+    </Styles.TextField>
   );
 };
 

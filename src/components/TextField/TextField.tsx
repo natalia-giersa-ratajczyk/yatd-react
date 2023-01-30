@@ -11,9 +11,9 @@ const TextFieldInner = (
 ) => {
   return (
     <Styles.TextField>
-      <label htmlFor={id}>
+      <Styles.Label htmlFor={id}>
         <Typography text={label} variant="body" />
-      </label>
+      </Styles.Label>
       <Styles.Input
         type="text"
         id={id}

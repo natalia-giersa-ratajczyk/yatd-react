@@ -6,6 +6,8 @@ export const TextField = styled.div`
   gap: 1.2rem;
 `;
 
+export const Label = styled.label``;
+
 export const Input = styled.input`
   padding: 1.8rem 1.6rem;
   background-color: ${({ theme }) => theme.colors.whiteColor};

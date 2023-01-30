@@ -6,6 +6,8 @@ export const Wrapper = styled.div`
   gap: 1.2rem;
 `;
 
+export const Label = styled.label``;
+
 export const TextArea = styled.textarea`
   min-height: 14.5rem;
   max-height: 22rem;

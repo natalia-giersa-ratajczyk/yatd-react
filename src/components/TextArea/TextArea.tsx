@@ -11,9 +11,9 @@ const TextAreaInner = (
 ) => {
   return (
     <Styles.Wrapper>
-      <label htmlFor={id}>
+      <Styles.Label htmlFor={id}>
         <Typography text={label} variant="body" />
-      </label>
+      </Styles.Label>
       <Styles.TextArea id={id} name={name} value={value} placeholder={placeholder} ref={ref} onChange={onChange} />
     </Styles.Wrapper>
   );

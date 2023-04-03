@@ -13,7 +13,7 @@ import Container from '@/containers/Container';
 import { TaskWithoutId } from '@/interfaces/task';
 import TaskContext from '@/store/taskContext';
 
-import styles from './AddTask.module.css';
+import * as Styles from './AddTask.styles';
 
 const AddTask = () => {
   const navigate = useNavigate();
@@ -77,7 +77,7 @@ const AddTask = () => {
         }}
       />
       <Container>
-        <form className={styles.form} onSubmit={submitHandler}>
+        <Styles.AddTask onSubmit={submitHandler}>
           <Typography text="Add your new task" variant="heading" renderAs="h2" />
           <TextField
             label="Title"
@@ -109,7 +109,7 @@ const AddTask = () => {
           <Button icon={<AddIcon />} type="submit">
             <span>Add task</span>
           </Button>
-        </form>
+        </Styles.AddTask>
       </Container>
       <Footer />
     </>

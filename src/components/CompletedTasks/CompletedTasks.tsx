@@ -4,16 +4,16 @@ import ListHeader from '@/components/ListHeader';
 import TasksList from '@/components/TasksList';
 import TaskContext from '@/store/taskContext';
 
-import styles from './CompletedTasks.module.css';
+import * as Styles from './CompletedTasks.styles';
 
 const CompletedTasks = () => {
   const { completedTasks } = useContext(TaskContext);
 
   return (
-    <div className={styles['completed-tasks']}>
+    <Styles.CompletedTasks>
       <ListHeader text="Completed tasks" counter={completedTasks.length} />
       <TasksList tasks={completedTasks} hasCompletedTasks />
-    </div>
+    </Styles.CompletedTasks>
   );
 };
 

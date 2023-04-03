@@ -1,25 +1,12 @@
-import styles from './Button.module.css';
+import * as Styles from './Button.styles';
 import { ButtonProps } from './Button.types';
 
-const Button = ({
-  children,
-  onClick,
-  disabled = false,
-  icon,
-  variant = 'primary',
-  className = '',
-  type = 'button',
-}: ButtonProps) => {
+const Button = ({ children, onClick, disabled = false, icon, variant = 'primary', type = 'button' }: ButtonProps) => {
   return (
-    <button
-      type={type}
-      className={`${styles.button} ${styles[variant]} ${className}`}
-      onClick={onClick}
-      disabled={disabled}
-    >
+    <Styles.Button type={type} onClick={onClick} disabled={disabled} $variant={variant}>
       {children}
       {icon}
-    </button>
+    </Styles.Button>
   );
 };
 

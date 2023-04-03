@@ -1,7 +1,7 @@
 import Checkbox from '@/components/Checkbox';
 import Input from '@/components/Input';
 
-import styles from './CheckboxField.module.css';
+import * as Styles from './CheckboxField.styles';
 import { CheckboxFieldProps } from './CheckboxField.types';
 
 const CheckboxField = ({
@@ -18,7 +18,7 @@ const CheckboxField = ({
   clickHandler,
 }: CheckboxFieldProps) => {
   return (
-    <div className={styles['checkbox-field']}>
+    <Styles.CheckboxField>
       <Checkbox
         id={id}
         name={name}
@@ -37,7 +37,7 @@ const CheckboxField = ({
         keyDownHandler={keyDownHandler}
         disabled={disabled}
       />
-    </div>
+    </Styles.CheckboxField>
   );
 };
 

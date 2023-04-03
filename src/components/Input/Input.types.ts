@@ -10,3 +10,7 @@ export interface InputProps {
   changeHandler?: (event: ChangeEvent<HTMLInputElement>) => void;
   blurHandler?: (event: FocusEvent<HTMLInputElement>) => void;
 }
+
+export type StyledInputProps = {
+  $disabled?: InputProps['disabled'];
+};

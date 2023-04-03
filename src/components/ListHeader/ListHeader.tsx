@@ -1,15 +1,15 @@
 import Counter from '@/components/Counter';
 import Typography from '@/components/Typography';
 
-import styles from './ListHeader.module.css';
+import * as Styles from './ListHeader.styles';
 import { ListHeaderProps } from './ListHeader.types';
 
 const ListHeader = ({ text, counter }: ListHeaderProps) => {
   return (
-    <div className={styles['list-header']}>
+    <Styles.ListHeader>
       <Typography text={text} variant="heading" renderAs="h2" />
       <Counter value={counter} />
-    </div>
+    </Styles.ListHeader>
   );
 };
 

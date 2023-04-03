@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import CheckIcon from '@/assets/icons/check.svg';
 
-import styles from './Checkbox.module.css';
+import * as Styles from './Checkbox.styles';
 import { CheckboxProps } from './Checkbox.types';
 
 const Checkbox = ({
@@ -19,19 +19,13 @@ const Checkbox = ({
     setIsChecked((previousState) => !previousState);
   };
 
-  const checkedStyles = isChecked ? styles['checkbox-label-checked'] : '';
-
-  const disabledStyles = disabled ? styles['checkbox-label-disabled'] : '';
-
-  const activeStyles = isActive ? styles['checkbox-label-active'] : '';
-
   return (
-    <label className={`${styles['checkbox-label']} ${checkedStyles} ${disabledStyles} ${activeStyles}`} htmlFor={id}>
-      <span className={styles.icon}>
+    <Styles.Label htmlFor={id} $checked={isChecked} $disabled={disabled} $isActive={isActive}>
+      <Styles.Icon>
         <CheckIcon />
-      </span>
+      </Styles.Icon>
 
-      <input
+      <Styles.Input
         id={id}
         name={name}
         type="checkbox"
@@ -39,7 +33,7 @@ const Checkbox = ({
         onChange={toggleHandler}
         onClick={() => clickHandler(id)}
       />
-    </label>
+    </Styles.Label>
   );
 };
 

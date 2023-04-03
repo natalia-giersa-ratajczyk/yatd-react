@@ -1,10 +1,9 @@
 import { ElementType } from 'react';
+import { CssInterpolation } from 'styled-components';
 
 export type Variant = 'heading' | 'body' | 'small';
-export type Color = 'text' | 'accent' | 'gray';
+export type Color = 'textColor' | 'accentColor' | 'grayColor';
 export type Element = Extract<ElementType, 'h2' | 'p' | 'span'>;
-export type ColorConfig = Record<Color, string>;
-export type VariantConfig = Record<Variant, string>;
 
 export interface TypographyProps {
   text: string | number;
@@ -12,3 +11,10 @@ export interface TypographyProps {
   color?: Color;
   renderAs?: Element;
 }
+
+export type StyledVariantConfig = Record<Variant, CssInterpolation>;
+
+export type StyledTypographyProps = {
+  $variant: TypographyProps['variant'];
+  $color: TypographyProps['color'];
+};
